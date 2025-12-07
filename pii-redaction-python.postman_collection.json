@@ -1,0 +1,50 @@
+{
+  "info": {
+    "name": "PII Redaction API - Python",
+    "description": "API for detecting and redacting PII from images",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/health",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["health"]
+        },
+        "description": "Check if the API is running and healthy"
+      }
+    },
+    {
+      "name": "Redact PII from Image",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "src": [],
+              "description": "Image file containing PII to redact"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:5000/redact-pii",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["redact-pii"]
+        },
+        "description": "Upload an image and receive a redacted version with PII covered by black rectangles"
+      }
+    }
+  ]
+}
